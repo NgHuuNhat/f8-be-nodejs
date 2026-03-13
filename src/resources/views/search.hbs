@@ -1,0 +1,18 @@
+<form method="POST" action="" class="form-inline my-2 my-lg-0 d-block">
+    <div class="form-group">
+        {{!-- <input type="text" name="fullname" placeholder="fullname" class="form-control mr-sm-2">
+        <input type="text" name="age" placeholder="age" class="form-control mr-sm-2"> --}}
+        <input name="q" type="search" placeholder="Search" aria-label="Search" class="form-control mr-sm-2">
+    </div>
+
+    <div class="form-group">
+        {{!-- <label for="exampleFormControlSelect1">Gender</label> --}}
+        <select name="gender" class="form-control" id="exampleFormControlSelect1">
+            <option value="">--Gender--</option>
+            <option value="male">Nam</option>
+            <option value="female">Nu</option>
+        </select>
+    </div>
+
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
