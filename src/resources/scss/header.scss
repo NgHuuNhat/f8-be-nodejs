@@ -1,0 +1,44 @@
+/* NAVBAR */
+
+.main-navbar {
+    padding: 10px 0;
+}
+
+/* AVATAR */
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+}
+
+/* USER MENU */
+
+.user-menu {
+    display: flex;
+    align-items: center;
+}
+
+.user-name {
+    font-weight: 500;
+}
+
+/* DROPDOWN */
+
+.dropdown-menu {
+    min-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ITEM */
+
+.dropdown-item {
+    padding: 10px 16px;
+}
+
+.dropdown-item:hover {
+    background: #f5f5f5;
+}

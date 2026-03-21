@@ -1,1 +1,41 @@
-<h1>home page</h1>
+<div class="container courses-page">
+
+    <div class="row">
+
+        {{#each courses}}
+
+        <div class="col-sm-6 col-lg-4 mb-4">
+
+            <div class="course-card">
+
+                <a href="/courses/{{this.slug}}" class="course-a">
+                    <img src="{{this.thumbnail}}" class="course-img" alt="{{this.name}}">
+                </a>
+
+                <div class="course-body">
+
+                    <a href="/courses/{{this.slug}}" class="course-link">
+                        <h5 class="course-title">
+                            {{this.name}}
+                        </h5>
+                    </a>
+
+                    <p class="course-desc">
+                        {{this.description}}
+                    </p>
+
+                    <a href="#" class="course-btn">
+                        Mua khóa học
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {{/each}}
+
+    </div>
+
+</div>

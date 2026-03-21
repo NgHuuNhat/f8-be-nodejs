@@ -1,0 +1,28 @@
+/* TABLE IMAGE */
+
+.table-img{
+    width:80px;
+    height:50px;
+    object-fit:cover;
+    border-radius:6px;
+}
+
+/* TABLE */
+
+.table{
+    background:white;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.table thead{
+    background:#343a40;
+    color:white;
+}
+
+/* BUTTON */
+
+.btn-sm{
+    padding:4px 10px;
+    font-size:13px;
+}

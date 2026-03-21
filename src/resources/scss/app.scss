@@ -1,12 +1,10 @@
 @import '_variables';
+@import 'search';
+@import 'news';
+@import 'home';
+@import 'header';
+@import 'stored-courses';
 
 .app {
     font-size: 1rem;
-    // background-color: red;
 }
-
-// .container {
-//     max-width: 1200px;
-//     margin: auto;
-//     background-color: $red-color;
-// } 

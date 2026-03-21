@@ -1,0 +1,154 @@
+<div class="container mt-4">
+
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2>Thùng rác</h2>
+            {{!-- <a href="/me/stored/courses" class="btn btn-primary">
+                Khoá học của tôi
+            </a> --}}
+        </div>
+
+        <div>
+            {{!-- <a href="/me/trash/courses" class="btn btn-primary">
+                Thùng rác
+            </a> --}}
+            <a href="/me/stored/courses" class="btn btn-primary">
+                Đi đến Khoá học của tôi
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Table -->
+    <div class="table-responsive">
+
+        <table class="table table-hover align-middle">
+
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Hình ảnh</th>
+                    <th>Tên khóa học</th>
+                    <th>Trình độ</th>
+                    <th>Ngày tạo</th>
+                    <th>Ngày cập nhật</th>
+                    <th>Ngày xoá</th>
+                    <th colspan="2">Hành động</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {{#each courses}}
+                <tr>
+
+                    <td>{{sum @index 1}}</td>
+
+                    <td>
+                        <img src="{{this.thumbnail}}" class="table-img">
+                    </td>
+
+                    <td>{{this.name}}</td>
+
+                    <td>{{this.level}}</td>
+
+                    <td>{{formatDate this.createdAt}}</td>
+
+                    <td>{{formatDate this.updatedAt}}</td>
+
+                    <td>{{formatDate this.deletedAt}}</td>
+
+                    <td>
+                        <a href="" class="btn btn-warning btn-sm btn-restore" data-id="{{this._id}}">
+                            Khôi phục
+                        </a>
+                    </td>
+
+                    <td>
+                        <button href="" class="btn btn-danger btn-sm" data-id="{{this._id}}" data-name="{{this.name}}"
+                            data-toggle="modal" data-target="#exampleModal">
+                            Xoá vĩnh viễn
+                        </button>
+                    </td>
+
+                </tr>
+
+                {{else}}
+                <tr>
+                    <td colspan="8" class="text-center">
+                        Thùng rác trống.
+                        {{!-- <a href="/me/stored/courses">Trở về!</a> --}}
+                    </td>
+                </tr>
+
+
+                {{/each}}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xoá vĩnh viễn!!!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>Hành động này không thể khôi phục!!! Bạn chắc chắn muốn xoá vĩnh viễn?</div>
+                    <div><strong id="course-name"></strong>?</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                    <button id="btn-delete" type="button" class="btn btn-danger">Xoá vĩnh viễn</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- hidden form --}}
+<form method="POST" name="form-delete"></form>
+<form method="POST" name="form-restore"></form>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let id
+        let name
+        const btnDelete = document.getElementById('btn-delete')
+        const formDelete = document.forms['form-delete']
+        const formRestore = document.forms['form-restore']
+        const courseName = document.getElementById('course-name')
+        const btnRestore = $('.btn-restore')
+
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            const button = $(event.relatedTarget)
+
+            id = button.data('id')
+            name = button.data('name')
+
+            courseName.textContent = name
+        })
+
+        btnDelete.addEventListener('click', function () {
+            formDelete.action = '/courses/' + id + '/force?_method=DELETE'
+            formDelete.submit()
+        })
+
+        btnRestore.click(function (e) {
+            e.preventDefault()
+            const id = $(this).data('id')
+            formRestore.action = '/courses/' + id + '/restore?_method=PATCH'
+            formRestore.submit()
+        })
+    })
+</script>
