@@ -16,7 +16,7 @@
                 <div class="d-flex">
                     <select class="form-control form-control-sm flex-fill mr-2" name="action" required>
                         <option value="">-- Chọn hành động --</option>
-                        <option value="delete">-- Xoá --</option>
+                        <option value="delete-all">-- Xoá --</option>
                     </select>
 
                     <button type="button" class="btn btn-primary btn-sm btn-apdung" disabled>
@@ -46,7 +46,12 @@
                     <th></th>
                     <th>#</th>
                     <th>Hình ảnh</th>
-                    <th>Tên khóa học</th>
+                    {{!-- <th>Tên khóa học</th> --}}
+                    <th class="d-flex align-items-center">
+                        <span class="mr-1">Tên khóa học</span>
+                        <a href="?_sort&column=name&type=asc">↓</a>
+                        <a href="?_sort&column=name&type=desc">↑</a>
+                    </th>
                     <th>Trình độ</th>
                     <th>Ngày tạo</th>
                     <th>Ngày cập nhật</th>
@@ -132,9 +137,11 @@
         </div>
     </div>
 
-    {{!-- hidden form delete --}}
-    <form method="POST" name="form-delete"></form>
+
 </form>
+
+{{!-- hidden form delete --}}
+<form method="POST" name="form-delete"></form>
 
 
 

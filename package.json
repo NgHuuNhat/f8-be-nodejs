@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/NgHuuNhat/f8-be-nodejs#readme",
   "dependencies": {
+    "@primer/octicons": "^19.23.1",
+    "bootstrap-icons": "^1.13.1",
     "express": "^5.2.1",
     "express-handlebars": "^8.0.1",
     "method-override": "^3.0.0",

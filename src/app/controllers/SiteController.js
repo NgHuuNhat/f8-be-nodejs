@@ -1,5 +1,6 @@
 const Course = require('../models/Course')
 const { listToObjectCustom } = require('../../util/ToObjectCustom')
+const octicons = require('@primer/octicons')
 
 class SiteController {
     //GET /home
@@ -7,7 +8,7 @@ class SiteController {
         Course.find({})
             .then(courses => {
                 res.render('home', {
-                    courses: listToObjectCustom(courses)
+                    courses: listToObjectCustom(courses),
                 })
             })
             .catch(err => next(err))

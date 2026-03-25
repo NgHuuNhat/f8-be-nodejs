@@ -70,7 +70,7 @@ class CoursesController {
     handleFormActions(req, res, next) {
         // res.json(req.body)
         switch (req.body.action) {
-            case 'delete':
+            case 'delete-all':
                 Course.delete({ _id: { $in: req.body.checkboxItem } })
                     .then(() => res.redirect(req.get('referer') || '/me/stored/courses'))
                     .catch(next)
