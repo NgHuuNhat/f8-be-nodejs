@@ -44,10 +44,6 @@ class MeController {
 
         Promise.all([abc, Course.countDocumentsDeleted()])
             .then(([courses, deletedCount]) => {
-
-                console.log(req.query)
-                console.log(courses.map(c => c.name))
-
                 res.render('me/stored-courses', {
                     deletedCount,
                     courses: listToObjectCustom(courses),

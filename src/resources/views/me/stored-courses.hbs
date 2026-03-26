@@ -72,7 +72,10 @@
                     <td>{{sum @index 1}}</td>
 
                     <td>
-                        <img src="{{this.thumbnail}}" class="table-img">
+                        <a href="/courses/{{this.slug}}" class="">
+                            <img src="{{this.thumbnail}}" class="table-img" alt="{{this.name}}">
+                        </a>
+                        {{!-- <img src="{{this.thumbnail}}" class="table-img"> --}}
                     </td>
 
                     <td>{{this.name}}</td>
@@ -103,6 +106,9 @@
                     <td colspan="8" class="text-center">
                         Bạn chưa đăng khoá học nào.
                         {{!-- <a href="/courses/create">Thêm khoá học!</a> --}}
+                        <a href="/courses/create" class="">
+                            + Thêm khóa học
+                        </a>
                     </td>
                 </tr>
 
